@@ -26,7 +26,7 @@ export function EspecifySearch() {
           `users/${username}/repos?page=${count}&sort=${selectedOptionList}&direction=${selectedOption}`,
           {
             headers: {
-              Authorization: 'token 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',
+              Authorization: `token ${import.meta.env.VITE_APP_GITHUB_TOKEN}`,
             },
           },
         )

@@ -14,7 +14,7 @@ export function SearchByRelated() {
         `search/repositories?q=${repoName}+user:${username}&per_page=10`,
         {
           headers: {
-            Authorization: 'token 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',
+            Authorization: `token ${import.meta.env.VITE_APP_GITHUB_TOKEN}`,
           },
         },
       )
