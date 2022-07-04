@@ -21,7 +21,7 @@ export function Footer() {
               <li className="mb-1">
                 <Link
                   to="/"
-                  className="flex items-center justify-between hover:underline hover:decoration-indigo-700 hover:decoration-solid hover:underline-offset-4"
+                  className="flex lg:text-xl md:text-sm sm:text-[12px] items-center justify-between hover:underline hover:decoration-indigo-700 hover:decoration-solid hover:underline-offset-4"
                 >
                   Buscar por repositórios relativos
                 </Link>
@@ -29,7 +29,7 @@ export function Footer() {
               <li className="mb-1">
                 <Link
                   to="/use-filters"
-                  className="flex items-center justify-between hover:underline hover:decoration-indigo-700 hover:decoration-solid hover:underline-offset-4"
+                  className="flex lg:text-xl md:text-sm sm:text-sm items-center justify-between hover:underline hover:decoration-indigo-700 hover:decoration-solid hover:underline-offset-4"
                 >
                   Especificar busca
                 </Link>

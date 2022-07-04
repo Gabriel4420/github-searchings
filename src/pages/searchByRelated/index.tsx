@@ -10,7 +10,7 @@ export function SearchByRelated() {
   async function getOneRepo(e: FormEvent) {
     e.preventDefault()
     try {
-      console.log(import.meta.env.VITE_APP_GITHUB_TOKEN)
+     
       const resp = await api.get(
         `search/repositories?q=${repoName}+user:${username}&per_page=10`,
         {
