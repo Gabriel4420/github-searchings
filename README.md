@@ -1,10 +1,3 @@
-<div align="center" id="top"> 
-  <img src="./assets/home.png" alt="Github Searchings" />
-  &#xa0;
-  <img src="./assets/home2.png" alt="Github Searchings" />
-  
-</div>
-
 <h1 align="center">Github Searchings</h1>
 
 <p align="center">
@@ -17,6 +10,13 @@
   <img alt="Licença" src="https://img.shields.io/github/license/Gabriel4420/github-searchings?color=56BEB8">
 
 </p>
+
+<div align="center" id="top"> 
+  <img src="./assets/home.png" alt="Github Searchings" />
+  &#xa0;
+  <img src="./assets/home2.png" alt="Github Searchings" />
+  
+</div>
 
 <p align="center">
   <a href="#dart-sobre">Sobre</a> &#xa0; | &#xa0; 
