@@ -1,5 +1,6 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import api from '../../api'
+import { Footer } from '../../components/templates/Footer'
 
 export function EspecifySearch() {
   const [username, setUserName] = useState('')
@@ -107,6 +108,8 @@ export function EspecifySearch() {
           ))
         )}
       </ul>
+
+      <Footer />
     </>
   )
 }

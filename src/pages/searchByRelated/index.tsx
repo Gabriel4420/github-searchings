@@ -1,5 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import api from '../../api'
+import { Footer } from '../../components/templates/Footer'
 
 export function SearchByRelated() {
   const [username, setUserName] = useState('')
@@ -10,7 +11,6 @@ export function SearchByRelated() {
   async function getOneRepo(e: FormEvent) {
     e.preventDefault()
     try {
-     
       const resp = await api.get(
         `search/repositories?q=${repoName}+user:${username}&per_page=10`,
         {
@@ -29,8 +29,11 @@ export function SearchByRelated() {
   return (
     <>
       <div>
-        <form className="flex flex-col px-28 h-[390px]" onSubmit={getOneRepo}>
-          <h1 className="font-sans text-center uppercase font-semibold text-indigo-800 text-xl p-10">
+        <form
+          className="flex flex-col px-28 h-[390px] w-full"
+          onSubmit={getOneRepo}
+        >
+          <h1 className="font-sans text-center uppercase w-full font-semibold text-indigo-800 lg:text-xl md:text-[8px] sm:text-[8px] p-10">
             Busca por Repositórios Relacionados
           </h1>
           <input
@@ -73,6 +76,7 @@ export function SearchByRelated() {
             )
           })}
         </ul>
+        <Footer />
       </div>
     </>
   )

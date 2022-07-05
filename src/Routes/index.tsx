@@ -12,7 +12,7 @@ export function Routers() {
         <Route path="/" element={<SearchByRelated />} />
         <Route path="/use-filters" element={<EspecifySearch />} />
       </Routes>
-      <Footer />
+      
     </>
   )
 }
