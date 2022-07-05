@@ -24,7 +24,7 @@ export function EspecifySearch() {
     async function getAllRepos() {
       try {
         const resp = await api.get(
-          `users/${username}/repos?page=${count}&sort=${selectedOptionList}&direction=${selectedOption}`,
+          `users/${username}/repos?sort=${selectedOptionList}&page=${count}&direction=${selectedOption}`,
           {
             headers: {
               Authorization: `token ${import.meta.env.VITE_APP_GITHUB_TOKEN}`,
@@ -74,7 +74,7 @@ export function EspecifySearch() {
             className="block appearance-none mr-1 w-full bg-white rounded-sm pl-4 py-3 pr-8 cursor-pointer focus:outline-none border  border-indigo-500 hover:border-indigo-700 shadow-md shadow-indigo-500/40"
             onChange={selectChange}
           >
-            <option disabled>Selecione como deseja ordenar</option>
+            <option >Selecione como deseja ordenar</option>
             <option value="asc">ordem - crescente</option>
             <option value="desc">ordem - decrescente</option>
           </select>
@@ -83,7 +83,7 @@ export function EspecifySearch() {
             className="block appearance-none mr-1 w-full bg-white rounded-sm pl-4 py-3 pr-8 cursor-pointer focus:outline-none border  border-indigo-500 hover:border-indigo-700 shadow-md shadow-indigo-500/40"
             onChange={selectChangeList}
           >
-            <option disabled>Selecione como deseja listar</option>
+            <option >Selecione como deseja listar</option>
             <option value="full_name">nome inteiro</option>
             <option value="created">data de criação</option>
             <option value="updated">data de atualização</option>
