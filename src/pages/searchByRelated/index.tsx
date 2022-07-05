@@ -29,13 +29,13 @@ export function SearchByRelated() {
   return (
     <>
       <div>
+        <h1 className="font-sans text-center uppercase w-full font-semibold text-indigo-800 lg:text-xl md:text-lg sm:text-[8px] p-10">
+          Busca por Repositórios Relacionados
+        </h1>
         <form
-          className="flex flex-col px-28 h-[390px] w-full"
+          className="flex flex-col px-28 h-[490px] w-auto max-w-full"
           onSubmit={getOneRepo}
         >
-          <h1 className="font-sans text-center uppercase w-full font-semibold text-indigo-800 lg:text-xl md:text-[8px] sm:text-[8px] p-10">
-            Busca por Repositórios Relacionados
-          </h1>
           <input
             type="text"
             value={repoName}
