@@ -1,3 +1,4 @@
+import { ArrowCircleLeft, ArrowCircleRight } from 'phosphor-react'
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import api from '../../api'
 import { Footer } from '../../components/templates/Footer'
@@ -8,7 +9,7 @@ export function EspecifySearch() {
   const [selectedOptionList, setSelectedOptionList] = useState<
     String | undefined
   >()
-  const [count, setCount] = useState(1)
+  const [count, setCount] = useState(2 - 1)
   const [allRepos, setAllRepos] = useState([])
 
   const selectChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -55,26 +56,13 @@ export function EspecifySearch() {
           placeholder="Digite um nome de usuário"
           className="p-1 py-3  my-4 border-2 border-indigo-400 rounded-lg placeholder:text-gray-500 pl-3 shadow-md shadow-indigo-500/40 focus:outline-none"
         />
-        <div className="flex justify-start items-center">
-          <label className="text-sm pr-3" htmlFor="nextPage">
-            Página?
-          </label>
-          <input
-            type="number"
-            min="1"
-            name="nextPage"
-            value={count}
-            onChange={(e: any) => setCount(e.target.value)}
-            className="p-2 py-3 my-4 border-2 w-14 border-indigo-400 rounded-lg shadow-md shadow-indigo-500/40"
-          />
-        </div>
 
         <div className="flex relative w-full">
           <select
             className="block appearance-none mr-1 w-full bg-white rounded-sm pl-4 py-3 pr-8 cursor-pointer focus:outline-none border  border-indigo-500 hover:border-indigo-700 shadow-md shadow-indigo-500/40"
             onChange={selectChange}
           >
-            <option >Selecione como deseja ordenar</option>
+            <option>Selecione como deseja ordenar</option>
             <option value="asc">ordem - crescente</option>
             <option value="desc">ordem - decrescente</option>
           </select>
@@ -83,13 +71,26 @@ export function EspecifySearch() {
             className="block appearance-none mr-1 w-full bg-white rounded-sm pl-4 py-3 pr-8 cursor-pointer focus:outline-none border  border-indigo-500 hover:border-indigo-700 shadow-md shadow-indigo-500/40"
             onChange={selectChangeList}
           >
-            <option >Selecione como deseja listar</option>
+            <option>Selecione como deseja listar</option>
             <option value="full_name">nome inteiro</option>
             <option value="created">data de criação</option>
             <option value="updated">data de atualização</option>
             <option value="pushed">data de envio</option>
           </select>
         </div>
+      </div>
+
+      <div className="flex justify-between items-center px-11 pb-10">
+        <button>
+          <ArrowCircleLeft size={30} color="indigo" onClick={() => setCount(count - 1)} />
+        </button>
+        {allRepos.length == 0 ? (
+          ''
+        ) : (
+          <button>
+            <ArrowCircleRight size={30} color="indigo" onClick={() => setCount(count + 1)} />
+          </button>
+        )}
       </div>
 
       <ul className="p-10">
