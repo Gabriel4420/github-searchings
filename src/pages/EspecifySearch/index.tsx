@@ -37,6 +37,8 @@ export function EspecifySearch() {
     count,
   })
 
+ 
+
   return (
     <>
       <div className="p-10 flex flex-col ">
@@ -99,7 +101,7 @@ export function EspecifySearch() {
       </div>
 
       <ul className="p-10">
-        {allRepos.length === 0 ? (
+        {allRepos.length === 0 || username == '' ? (
           <h1 className="font-sans text-center font-semibold text-indigo-800 text-xl p-5">
             Não tem mais repositórios
           </h1>

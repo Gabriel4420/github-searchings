@@ -5,7 +5,7 @@ import { useGetOneRepo } from '../../hooks/useGetOneRepo'
 
 export function SearchByRelated() {
   const [username, setUserName] = useState('')
-
+  const [language, setLanguage] = useState('')
   const [repoName, setRepoName] = useState('')
   const [responseRepo, setResponseRepo] = useState([])
 
@@ -19,7 +19,13 @@ export function SearchByRelated() {
         <form
           className="flex flex-col px-28  w-auto max-w-full "
           onSubmit={(event) =>
-            useGetOneRepo({ event, repoName, username, setResponseRepo })
+            useGetOneRepo({
+              event,
+              repoName,
+              username,
+              language,
+              setResponseRepo,
+            })
           }
         >
           <label htmlFor="">Pesquise por um repositório:</label>
@@ -31,15 +37,27 @@ export function SearchByRelated() {
             }
             className="rounded-lg py-3 border-gray-600 border-2 my-3 p-2 placeholder:text-gray-500 pl-3 shadow-md shadow-indigo-500/40 focus:outline-none"
             placeholder="Pesquise por um repositório"
+            required
           />
           <label htmlFor="">Digite o nome de usuário:</label>
           <input
             type="text"
             name="username"
             id="username"
+            required
             value={username}
             onChange={(e: any) => setUserName(e.target.value)}
             placeholder="Digite o nome do usuário"
+            className="rounded-lg py-3 border-gray-600 border-2 my-3 mb-6 p-2 placeholder:text-gray-500 pl-3 shadow-md shadow-indigo-500/40 focus:outline-none"
+          />
+          <label htmlFor="">Filtre por linguagem:</label>
+          <input
+            type="text"
+            name="language"
+            id="language"
+            value={language}
+            onChange={(e: any) => setLanguage(e.target.value)}
+            placeholder="Digite uma linguagem de programação"
             className="rounded-lg py-3 border-gray-600 border-2 my-3 mb-6 p-2 placeholder:text-gray-500 pl-3 shadow-md shadow-indigo-500/40 focus:outline-none"
           />
           <div className="flex justify-center items-center">
@@ -56,7 +74,13 @@ export function SearchByRelated() {
         <form
           className="flex flex-col px-28 lg: h-[490px] md: h-[420px] sm: h-[380px] w-auto max-w-full "
           onSubmit={(event) =>
-            useGetOneRepo({ event, repoName, username, setResponseRepo })
+            useGetOneRepo({
+              event,
+              repoName,
+              username,
+              language,
+              setResponseRepo,
+            })
           }
         >
           <label htmlFor="">Pesquise por um repositório:</label>
@@ -68,6 +92,7 @@ export function SearchByRelated() {
             }
             className="rounded-lg py-3 border-gray-600 border-2 my-3 p-2 placeholder:text-gray-500 pl-3 shadow-md shadow-indigo-500/40 focus:outline-none"
             placeholder="Pesquise por um repositório"
+            required
           />
           <label htmlFor="">Digite o nome de um usuário:</label>
           <input
@@ -76,7 +101,18 @@ export function SearchByRelated() {
             id="username"
             value={username}
             onChange={(e: any) => setUserName(e.target.value)}
+            className="rounded-lg py-3 border-gray-600 border-2 my-3 mb-6 p-2 placeholder:text-gray-500 pl-3 shadow-md shadow-indigo-500/40 focus:outline-none"
             placeholder="Digite o nome do usuário"
+            required
+          />
+          <label htmlFor="">Filtre por linguagem:</label>
+          <input
+            type="text"
+            name="language"
+            id="language"
+            value={language}
+            onChange={(e: any) => setLanguage(e.target.value)}
+            placeholder="Digite uma linguagem de programação"
             className="rounded-lg py-3 border-gray-600 border-2 my-3 mb-6 p-2 placeholder:text-gray-500 pl-3 shadow-md shadow-indigo-500/40 focus:outline-none"
           />
           <div className="flex justify-center items-center">
