@@ -47,6 +47,7 @@ export function EspecifySearch() {
         <h1 className="font-sans text-center uppercase font-semibold text-indigo-800 lg:text-xl p-10 md:text-md sm:text-sm">
           Listar repositórios de um usuário com filtros
         </h1>
+        <label htmlFor="">Pesquise por um usuário:</label>
         <input
           type="text"
           name="username"
@@ -62,7 +63,7 @@ export function EspecifySearch() {
             className="block appearance-none mr-1 w-full bg-white rounded-sm pl-4 py-3 pr-8 cursor-pointer focus:outline-none border  border-indigo-500 hover:border-indigo-700 shadow-md shadow-indigo-500/40"
             onChange={selectChange}
           >
-            <option>Selecione como deseja ordenar</option>
+            <option>Ordenar por:</option>
             <option value="asc">ordem - crescente</option>
             <option value="desc">ordem - decrescente</option>
           </select>
@@ -71,7 +72,7 @@ export function EspecifySearch() {
             className="block appearance-none mr-1 w-full bg-white rounded-sm pl-4 py-3 pr-8 cursor-pointer focus:outline-none border  border-indigo-500 hover:border-indigo-700 shadow-md shadow-indigo-500/40"
             onChange={selectChangeList}
           >
-            <option>Selecione como deseja listar</option>
+            <option>Listar por:</option>
             <option value="full_name">nome inteiro</option>
             <option value="created">data de criação</option>
             <option value="updated">data de atualização</option>

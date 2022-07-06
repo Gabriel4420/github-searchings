@@ -47,7 +47,7 @@ export function Header() {
                   to="/"
                   className="flex items-center justify-between hover:underline hover:decoration-indigo-700 hover:decoration-solid hover:underline-offset-4"
                 >
-                  Buscar por repositórios relativos
+                  Buscar por repositórios relacionados
                 </Link>
               </li>
               <li className="mb-6">

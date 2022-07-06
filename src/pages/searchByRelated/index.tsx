@@ -38,6 +38,7 @@ export function SearchByRelated() {
           className="flex flex-col px-28  w-auto max-w-full "
           onSubmit={getOneRepo}
         >
+          <label htmlFor="">Pesquise por um repositório:</label>
           <input
             type="text"
             value={repoName}
@@ -47,6 +48,7 @@ export function SearchByRelated() {
             className="rounded-lg py-3 border-gray-600 border-2 my-3 p-2 placeholder:text-gray-500 pl-3 shadow-md shadow-indigo-500/40 focus:outline-none"
             placeholder="Pesquise por um repositório"
           />
+           <label htmlFor="">Digite o nome de usuário:</label>
           <input
             type="text"
             name="username"
@@ -70,6 +72,7 @@ export function SearchByRelated() {
           className="flex flex-col px-28 lg: h-[490px] md: h-[420px] sm: h-[380px] w-auto max-w-full "
           onSubmit={getOneRepo}
         >
+          <label htmlFor="">Pesquise por um repositório:</label>
           <input
             type="text"
             value={repoName}
@@ -79,6 +82,7 @@ export function SearchByRelated() {
             className="rounded-lg py-3 border-gray-600 border-2 my-3 p-2 placeholder:text-gray-500 pl-3 shadow-md shadow-indigo-500/40 focus:outline-none"
             placeholder="Pesquise por um repositório"
           />
+          <label htmlFor="">Digite o nome de um usuário:</label>
           <input
             type="text"
             name="username"
