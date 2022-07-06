@@ -5,12 +5,18 @@ import { Footer } from '../../components/templates/Footer'
 import { useGetAllRepos } from '../../hooks/useGetAllRepos'
 
 export function EspecifySearch() {
+  //States
+
   const [username, setUserName] = useState('')
+
   const [selectedOption, setSelectedOption] = useState<String | undefined>()
+
   const [selectedOptionList, setSelectedOptionList] = useState<
     String | undefined
   >()
+
   const [count, setCount] = useState(2 - 1)
+
   const [allRepos, setAllRepos] = useState([])
 
   const selectChange = (event: ChangeEvent<HTMLSelectElement>) => {
