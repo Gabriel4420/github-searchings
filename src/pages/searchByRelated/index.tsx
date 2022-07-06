@@ -1,31 +1,13 @@
-import { ChangeEvent, FormEvent, useState } from 'react'
-import api from '../../api'
+import { ChangeEvent, useState } from 'react'
+import { FiSearch } from 'react-icons/fi'
 import { Footer } from '../../components/templates/Footer'
+import { useGetOneRepo } from '../../hooks/useGetOneRepo'
 
 export function SearchByRelated() {
   const [username, setUserName] = useState('')
 
   const [repoName, setRepoName] = useState('')
   const [responseRepo, setResponseRepo] = useState([])
-
-  async function getOneRepo(e: FormEvent) {
-    e.preventDefault()
-    try {
-      const resp = await api.get(
-        `/search/repositories?q=${repoName}+user%3A${username}`,
-        {
-          headers: {
-            Accept: 'application/vnd.github+json',
-            Authorization: `token ${import.meta.env.VITE_APP_GITHUB_TOKEN}`,
-          },
-        },
-      )
-      console.log(resp.data)
-      setResponseRepo(resp.data.items)
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   return (
     <>
@@ -36,7 +18,9 @@ export function SearchByRelated() {
       {responseRepo?.length > 0 ? (
         <form
           className="flex flex-col px-28  w-auto max-w-full "
-          onSubmit={getOneRepo}
+          onSubmit={(event) =>
+            useGetOneRepo({ event, repoName, username, setResponseRepo })
+          }
         >
           <label htmlFor="">Pesquise por um repositório:</label>
           <input
@@ -48,7 +32,7 @@ export function SearchByRelated() {
             className="rounded-lg py-3 border-gray-600 border-2 my-3 p-2 placeholder:text-gray-500 pl-3 shadow-md shadow-indigo-500/40 focus:outline-none"
             placeholder="Pesquise por um repositório"
           />
-           <label htmlFor="">Digite o nome de usuário:</label>
+          <label htmlFor="">Digite o nome de usuário:</label>
           <input
             type="text"
             name="username"
@@ -60,17 +44,20 @@ export function SearchByRelated() {
           />
           <div className="flex justify-center items-center">
             <button
-              className="relative rounded-lg w-28 uppercase  text-sm font-medium p-3 transition duration-150 ease-in-out focus:outline-none focus:visible:ring-2 border-indigo-600 border-2 text-indigo-600 hover:bg-indigo-600 hover:text-white"
+              className="relative rounded-lg  flex justify-center items-center w-32 uppercase  text-sm font-medium p-3 transition duration-150 ease-in-out focus:outline-none focus:visible:ring-2 border-indigo-600 border-2 text-indigo-600 hover:bg-indigo-600 hover:text-white"
               type="submit"
             >
-              buscar
+              <span className="mr-2">Buscar</span>
+              <FiSearch size={30} />
             </button>
           </div>
         </form>
       ) : (
         <form
           className="flex flex-col px-28 lg: h-[490px] md: h-[420px] sm: h-[380px] w-auto max-w-full "
-          onSubmit={getOneRepo}
+          onSubmit={(event) =>
+            useGetOneRepo({ event, repoName, username, setResponseRepo })
+          }
         >
           <label htmlFor="">Pesquise por um repositório:</label>
           <input
@@ -94,10 +81,11 @@ export function SearchByRelated() {
           />
           <div className="flex justify-center items-center">
             <button
-              className="relative rounded-lg w-28 uppercase  text-sm font-medium p-3 transition duration-150 ease-in-out focus:outline-none focus:visible:ring-2 border-indigo-600 border-2 text-indigo-600 hover:bg-indigo-600 hover:text-white"
+              className="relative rounded-lg  flex justify-center items-center w-32 uppercase  text-sm font-medium p-3 transition duration-150 ease-in-out focus:outline-none focus:visible:ring-2 border-indigo-600 border-2 text-indigo-600 hover:bg-indigo-600 hover:text-white"
               type="submit"
             >
-              buscar
+              <span className="mr-2">Buscar</span>
+              <FiSearch size={30} />
             </button>
           </div>
         </form>

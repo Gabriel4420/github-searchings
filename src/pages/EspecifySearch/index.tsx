@@ -1,7 +1,8 @@
 import { ArrowCircleLeft, ArrowCircleRight } from 'phosphor-react'
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
-import api from '../../api'
+import { ChangeEvent, useState } from 'react'
+
 import { Footer } from '../../components/templates/Footer'
+import { useGetAllRepos } from '../../hooks/useGetAllRepos'
 
 export function EspecifySearch() {
   const [username, setUserName] = useState('')
@@ -21,26 +22,15 @@ export function EspecifySearch() {
     const value = event.target.value
     setSelectedOptionList(value)
   }
-  useEffect(() => {
-    async function getAllRepos() {
-      try {
-        const resp = await api.get(
-          `users/${username}/repos?sort=${selectedOptionList}&page=${count}&direction=${selectedOption}`,
-          {
-            headers: {
-              Authorization: `token ${import.meta.env.VITE_APP_GITHUB_TOKEN}`,
-            },
-          },
-        )
 
-        setAllRepos(resp.data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
+  useGetAllRepos({
+    selectedOption,
+    username,
+    setAllRepos,
+    selectedOptionList,
+    count,
+  })
 
-    getAllRepos()
-  }, [count, username, selectedOptionList, selectedOption])
   return (
     <>
       <div className="p-10 flex flex-col ">
@@ -83,13 +73,21 @@ export function EspecifySearch() {
 
       <div className="flex justify-between items-center px-11 pb-10">
         <button>
-          <ArrowCircleLeft size={30} color="indigo" onClick={() => setCount(count - 1)} />
+          <ArrowCircleLeft
+            size={30}
+            color="indigo"
+            onClick={() => setCount(count - 1)}
+          />
         </button>
         {allRepos.length == 0 ? (
           ''
         ) : (
           <button>
-            <ArrowCircleRight size={30} color="indigo" onClick={() => setCount(count + 1)} />
+            <ArrowCircleRight
+              size={30}
+              color="indigo"
+              onClick={() => setCount(count + 1)}
+            />
           </button>
         )}
       </div>
