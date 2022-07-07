@@ -55,7 +55,7 @@ export function Header() {
                   to="/use-filters"
                   className="flex items-center justify-between hover:underline hover:decoration-indigo-700 hover:decoration-solid hover:underline-offset-4"
                 >
-                  Especificar busca
+                 Listar repositórios de um usuário com ordenação
                 </Link>
               </li>
             </ul>

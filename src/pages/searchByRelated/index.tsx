@@ -111,7 +111,7 @@ export function SearchByRelated() {
       {responseRepo?.length > 0 ? (
         /* RETORNA BUSCA DO FORMULÁRIO */
         <form
-          className="flex flex-col lg:px-28 md:px-3 sm:px-4  w-auto max-w-full "
+          className="flex flex-col lg:px-28 md:px-3 sm:px-10  w-auto max-w-full "
           onSubmit={(event) =>
             useGetOneRepo({
               event,
@@ -303,7 +303,14 @@ export function SearchByRelated() {
               className="flex py-4 first:pt-0 last:pb-0 text-sm capitalize text-indigo-800"
               key={index}
             >
-              {items.full_name}
+              <a
+                target="blank"
+                href={items.html_url}
+                rel="nofollow noreferrer"
+                className="hover:underline-offset-2 hover:decoration-indigo-700 hover:underline"
+              >
+                {items.full_name}
+              </a>
             </li>
           )
         })}

@@ -31,6 +31,8 @@ export async function useGetOneRepo(props: useGetOneRepoProps) {
       },
     )
 
+    console.log(resp)
+
     props.setResponseRepo(resp.data.items)
   } catch (error) {
     console.log(error)

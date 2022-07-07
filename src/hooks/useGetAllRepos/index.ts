@@ -22,7 +22,7 @@ export function useGetAllRepos(props: useGetAllRepos) {
             },
           },
         )
-        
+        console.log(resp)
         props.setAllRepos(resp.data)
       } catch (error) {
         console.log(error)

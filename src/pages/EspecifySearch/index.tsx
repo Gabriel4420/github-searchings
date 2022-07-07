@@ -37,13 +37,11 @@ export function EspecifySearch() {
     count,
   })
 
- 
-
   return (
     <>
       <div className="p-10 flex flex-col ">
         <h1 className="font-sans text-center uppercase font-semibold text-indigo-800 lg:text-xl p-10 md:text-md sm:text-sm">
-          Listar repositórios de um usuário com filtros
+          Listar repositórios de um usuário com ordenação
         </h1>
         <label htmlFor="">Pesquise por um usuário:</label>
         <input
@@ -111,7 +109,14 @@ export function EspecifySearch() {
               className="flex py-4 first:pt-0 last:pb-0 text-sm capitalize text-indigo-800"
               key={index}
             >
-              {item.name}
+              <a
+                target="blank"
+                href={item.html_url}
+                rel="nofollow noreferrer"
+                className="hover:underline-offset-2 hover:decoration-indigo-700 hover:underline"
+              >
+                {item.name}
+              </a>
             </li>
           ))
         )}
