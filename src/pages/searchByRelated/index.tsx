@@ -72,7 +72,7 @@ export function SearchByRelated() {
         </form>
       ) : (
         <form
-          className="flex flex-col px-28 lg: h-[490px] md: h-[420px] sm: h-[380px] w-auto max-w-full "
+          className="flex flex-col px-28 lg: h-[490px] md: h-[420px] sm: h-[420px] w-auto max-w-full "
           onSubmit={(event) =>
             useGetOneRepo({
               event,
