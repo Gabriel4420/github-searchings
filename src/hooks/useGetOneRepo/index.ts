@@ -5,7 +5,8 @@ export interface useGetOneRepoProps {
   event: FormEvent
   repoName: string
   username: string
-  language?: string
+  language?: String | undefined
+  archived?: boolean
   setResponseRepo: (resp: any) => void
 }
 
@@ -13,7 +14,15 @@ export async function useGetOneRepo(props: useGetOneRepoProps) {
   props.event.preventDefault()
   try {
     const resp = await api.get(
-      `/search/repositories?q=${props.repoName}+user%3A${props.username}+language%3A${props.language}`,
+      `${
+        props.archived
+          ? `/search/repositories?q=${props.repoName}+archived%3Atrue${
+              props.username && `+user%3A${props.username}`
+            }&l=${props.language}`
+          : `/search/repositories?q=${props.repoName}+archived%3Afalse${
+              props.username && `+user%3A${props.username}`
+            }&l=${props.language}`
+      }`,
       {
         headers: {
           Accept: 'application/vnd.github+json',
@@ -21,7 +30,7 @@ export async function useGetOneRepo(props: useGetOneRepoProps) {
         },
       },
     )
-   
+
     props.setResponseRepo(resp.data.items)
   } catch (error) {
     console.log(error)
