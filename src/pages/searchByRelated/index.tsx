@@ -26,11 +26,11 @@ export function SearchByRelated() {
     },
     {
       title: 'C++',
-      value: 'C++',
+      value: 'c%2B%2B',
     },
     {
       title: 'C#',
-      value: 'C#',
+      value: 'c%23',
     },
     {
       title: 'Go',

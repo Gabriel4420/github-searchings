@@ -16,12 +16,14 @@ export async function useGetOneRepo(props: useGetOneRepoProps) {
     const resp = await api.get(
       `${
         props.archived
-          ? `/search/repositories?q=${props.repoName}+archived%3Atrue${
+          ? `/search/repositories?q=archived%3Atrue+l%3A${props.language}+${
               props.username && `+user%3A${props.username}`
-            }&l=${props.language}`
-          : `/search/repositories?q=${props.repoName}+archived%3Afalse${
+            }+${props.repoName}&type=Repositories`
+          : `/search/repositories?l=${props.language}&q=l%3A${
+              props.language
+            }+${props.repoName}${
               props.username && `+user%3A${props.username}`
-            }&l=${props.language}`
+            }&type=Repositories`
       }`,
       {
         headers: {

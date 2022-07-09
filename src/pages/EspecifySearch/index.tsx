@@ -39,7 +39,7 @@ export function EspecifySearch() {
 
   return (
     <>
-      <div className="p-10 flex flex-col ">
+      <div className="p-10 flex flex-col bg-[url('../../../assets/bg.jpg')] bg-auto bg-no-repeat bg-center ">
         <h1 className="font-sans text-center uppercase font-semibold text-indigo-800 lg:text-xl p-10 md:text-md sm:text-sm">
           Listar repositórios de um usuário com ordenação
         </h1>
@@ -75,52 +75,52 @@ export function EspecifySearch() {
             <option value="pushed">data de envio</option>
           </select>
         </div>
-      </div>
 
-      <div className="flex justify-between items-center px-11 pb-10">
-        <button>
-          <ArrowCircleLeft
-            size={30}
-            color="indigo"
-            onClick={() => setCount(count - 1)}
-          />
-        </button>
-        {allRepos.length == 0 ? (
-          ''
-        ) : (
+        <div className="flex justify-between items-center px-11 py-10">
           <button>
-            <ArrowCircleRight
+            <ArrowCircleLeft
               size={30}
               color="indigo"
-              onClick={() => setCount(count + 1)}
+              onClick={() => setCount(count - 1)}
             />
           </button>
-        )}
-      </div>
+          {allRepos.length == 0 ? (
+            ''
+          ) : (
+            <button>
+              <ArrowCircleRight
+                size={30}
+                color="indigo"
+                onClick={() => setCount(count + 1)}
+              />
+            </button>
+          )}
+        </div>
 
-      <ul className="p-10">
-        {allRepos.length === 0 || username == '' ? (
-          <h1 className="font-sans text-center font-semibold text-indigo-800 text-xl p-5">
-            Não tem mais repositórios
-          </h1>
-        ) : (
-          allRepos.map((item: any, index: any) => (
-            <li
-              className="flex py-4 first:pt-0 last:pb-0 text-sm capitalize text-indigo-800"
-              key={index}
-            >
-              <a
-                target="blank"
-                href={item.html_url}
-                rel="nofollow noreferrer"
-                className="hover:underline-offset-2 hover:decoration-indigo-700 hover:underline"
+        <ul className="p-10">
+          {allRepos.length === 0 || username == '' ? (
+            <h1 className="font-sans text-center font-semibold text-indigo-800 text-xl p-5">
+              Não tem mais repositórios
+            </h1>
+          ) : (
+            allRepos.map((item: any, index: any) => (
+              <li
+                className="flex py-4 first:pt-0 last:pb-0 text-sm capitalize text-indigo-800"
+                key={index}
               >
-                {item.name}
-              </a>
-            </li>
-          ))
-        )}
-      </ul>
+                <a
+                  target="blank"
+                  href={item.html_url}
+                  rel="nofollow noreferrer"
+                  className="hover:underline-offset-2 hover:decoration-indigo-700 hover:underline"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))
+          )}
+        </ul>
+      </div>
 
       <Footer />
     </>
