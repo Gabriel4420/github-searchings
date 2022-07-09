@@ -37,9 +37,13 @@ export function EspecifySearch() {
     count,
   })
 
+  const bg = '../../../assets/bg.jpg'
+
   return (
     <>
-      <div className="p-10 flex flex-col bg-[url('../../../assets/bg.jpg')] bg-auto bg-no-repeat bg-center ">
+      <div
+        className={`p-10 flex flex-col bg-[url(${bg})] bg-auto bg-no-repeat bg-center `}
+      >
         <h1 className="font-sans text-center uppercase font-semibold text-indigo-800 lg:text-xl p-10 md:text-md sm:text-sm">
           Listar repositórios de um usuário com ordenação
         </h1>
