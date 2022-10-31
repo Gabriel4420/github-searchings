@@ -10,7 +10,7 @@ export function Header() {
     <>
       <Navigation className="flex items-center justify-between relative bg-gray-900 px-6 sm:px-12 pt-4">
         <a
-          href="https://gabriel4420.github.io"
+          href="https://gabrielrodrigues.vercel.app"
           target="_blank"
           rel="nofollow noreferrer"
         >

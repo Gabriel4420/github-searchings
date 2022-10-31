@@ -8,7 +8,7 @@ export function Footer() {
       <div className="flex items-center justify-between">
         <div className="mr-10">
           <a
-            href="https://gabriel4420.github.io"
+            href="https://gabrielrodrigues.vercel.app"
             target="_blank"
             rel="nofollow noreferrer"
           >
@@ -43,7 +43,7 @@ export function Footer() {
           Develop by <br />
           <span className="font-semibold text-lg text-indigo-800 hover:underline hover:underline-offset-2 hover:decoration-indigo-700">
             <a
-              href="https://gabriel4420.github.io"
+              href="https://gabrielrodrigues.vercel.app"
               target="_blank"
               rel="nofollow noreferrer"
             >
