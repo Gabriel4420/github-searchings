@@ -5,7 +5,7 @@ import { useGetOneRepo } from '../../hooks/useGetOneRepo'
 import { useMediaQuery } from 'react-responsive'
 import { langs } from '../../helpers/langs'
 import ListResponse from '../../components/Mols/ListResponse'
-import Alerts from '../../components/Mols/Alerts'
+
 export function SearchByRelated() {
   const [username, setUserName] = useState('')
   const [language, setLanguage] = useState<String | undefined>()
@@ -52,13 +52,14 @@ export function SearchByRelated() {
             placeholder="Pesquise por um repositório"
             required
           />
-         
+
           <div className="flex items-center justify-between pb-20 relative w-full">
             <div className="flex flex-col">
-              <label htmlFor="">Linguagem?:</label>
+              <label htmlFor="">Linguagem</label>
               <select
                 className="block appearance-none mr-1 w-full bg-white rounded-sm pl-4 py-3 pr-8 cursor-pointer focus:outline-none border  border-indigo-500 hover:border-indigo-700 shadow-md shadow-indigo-500/40"
                 onChange={selectChange}
+                required
               >
                 <option> Selecione uma linguagem</option>
                 {langs.map((item: any, index: number) => {
@@ -126,10 +127,10 @@ export function SearchByRelated() {
             placeholder="Pesquise por um repositório"
             required
           />
-         
+
           <div className="flex items-center justify-between pb-20 relative w-full">
             <div className="flex flex-col">
-              <label htmlFor="">Linguagem ?:</label>
+              <label htmlFor="">Linguagem</label>
               <select
                 className="block appearance-none mr-1 w-full bg-white rounded-sm pl-4 py-3 pr-8 cursor-pointer focus:outline-none border  border-indigo-500 hover:border-indigo-700 shadow-md shadow-indigo-500/40"
                 onChange={selectChange}
@@ -181,9 +182,26 @@ export function SearchByRelated() {
         </form>
       )}
 
-      <Alerts responseRepo={responseRepo} checked={checked} repoName={repoName} />
+
+      {responseRepo?.length > 0 ? (
+        <h1 className="font-sans text-center uppercase w-full font-semibold text-indigo-800 lg:text-xl md:text-lg sm:text-[8px] p-10">
+          Resultado da busca: {repoName}
+        </h1>
+      ) : checked ? (
+        <h1 className="font-sans text-center uppercase w-full font-semibold text-indigo-800 lg:text-xl md:text-lg sm:text-[8px] p-10">
+          Não foi encontrado nenhum resultado da busca: {repoName} como
+          arquivado
+        </h1>
+      ) : (
+        <h1 className="font-sans text-center uppercase w-full font-semibold text-indigo-800 lg:text-xl md:text-lg sm:text-[8px] p-20">
+          Ainda não fez nenhuma busca ? É só digitar o repositório que deseja
+          buscar !!!
+        </h1>
+      )}
 
       {responseRepo?.length > 0 && <ListResponse responseRepo={responseRepo} />}
+
+
       <Footer />
     </>
   )
