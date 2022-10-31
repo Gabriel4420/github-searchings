@@ -15,7 +15,7 @@ export function EspecifySearch() {
     String | undefined
   >()
 
-  const [count, setCount] = useState(2 - 1)
+  const [count, setCount] = useState(1)
 
   const [allRepos, setAllRepos] = useState([])
 

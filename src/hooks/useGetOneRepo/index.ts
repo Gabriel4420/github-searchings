@@ -4,7 +4,7 @@ import api from '../../api'
 export interface useGetOneRepoProps {
   event: FormEvent
   repoName: string
-  username: string
+  username?: string
   language?: String | undefined
   archived?: boolean
   setResponseRepo: (resp: any) => void
@@ -15,15 +15,9 @@ export async function useGetOneRepo(props: useGetOneRepoProps) {
   try {
     const resp = await api.get(
       `${
-        props.archived
-          ? `/search/repositories?q=archived%3Atrue+l%3A${props.language}+${
-              props.username && `+user%3A${props.username}`
-            }+${props.repoName}&type=Repositories`
-          : `/search/repositories?l=${props.language}&q=l%3A${
-              props.language
-            }+${props.repoName}${
-              props.username && `+user%3A${props.username}`
-            }&type=Repositories`
+         props.archived
+          ? `search/repositories?q=archived%3Atrue+l%3A${props.language}+${props.repoName}&type=Repositories`
+          : `search/repositories?l=${props.language}&q=l%3A${props.language}+${props.repoName}&type=Repositories`
       }`,
       {
         headers: {
@@ -32,8 +26,6 @@ export async function useGetOneRepo(props: useGetOneRepoProps) {
         },
       },
     )
-
-    console.log(resp)
 
     props.setResponseRepo(resp.data.items)
   } catch (error) {
